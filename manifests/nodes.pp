@@ -12,5 +12,16 @@ node 'debian-7' {
     owner => "vagrant",
     group => "vagrant",
   }
-  include nginx
+  package { 'apache2':
+    ensure => installed,
+  }
+  package { 'jdk6':
+    ensure => installed,
+  }
+  package { 'tomcat6':
+    ensure => installed,
+  }
+  package { 'nginx':
+    ensure => absent,
+  }
 }
