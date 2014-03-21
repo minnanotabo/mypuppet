@@ -18,6 +18,9 @@ node 'debian-7' {
   package { 'jdk':
     ensure => installed,
   }
+  package { 'adk':
+    ensure => installed,
+  }
   package { 'tomcat6':
     ensure => installed,
   }
