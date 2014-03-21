@@ -15,12 +15,6 @@ node 'debian-7' {
   package { 'apache2':
     ensure => installed,
   }
-  package { 'jdk':
-    ensure => installed,
-  }
-  package { 'adk':
-    ensure => installed,
-  }
   package { 'tomcat6':
     ensure => installed,
   }
