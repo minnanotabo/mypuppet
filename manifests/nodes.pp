@@ -12,13 +12,19 @@ node 'debian-7' {
     owner => "vagrant",
     group => "vagrant",
   }
-  package { 'apache2':
-    ensure => installed,
+  class { 'myapache':
+    docroot => '/var/www/abcd',
   }
-  package { 'tomcat6':
-    ensure => installed,
-  }
-  package { 'nginx':
-    ensure => absent,
+  include tomcat
+  tomcat::install { 'example.com-tomcat':
+    source        => 'apache-tomcat-6.0.39.tar.gz',
+    deploymentdir => '/home/vagrant/apps/apache-tomcat',
+    user          => 'vagrant',
+    group         => 'vagrant',
+    default_webapp_docs        => 'present',
+    default_webapp_examples    => 'present',
+    default_webapp_hostmanager => 'present',
+    default_webapp_manager     => 'present',
+    default_webapp_root        => 'present'
   }
 }
