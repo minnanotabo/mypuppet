@@ -27,4 +27,10 @@ node 'debian-7' {
     default_webapp_manager     => 'present',
     default_webapp_root        => 'present'
   }
+  java::setup { 'jdk-6u45-linux-x64':
+    source => 'jdk-6u45-linux-x64.bin',
+    deploymentdir => '/home/vagrant/jdk6',
+    user => 'vagrant',
+    pathfile => '/home/vagrant/.bashrc',
+  }
 }
